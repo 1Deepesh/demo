@@ -12,4 +12,9 @@ node {
 
 	echo "new stage added...."
     }
+    stage ('featurestg.') {
+
+        echo "feature ...."
+    }
+
 }
