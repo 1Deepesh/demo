@@ -1,20 +1,22 @@
 node {
-    stage ('build') {
-        echo 'Building ....'
+    stage ('SCM') {
+        echo 'Gathering code from github ....'
+        git branch: '$branch'; url: "https://github.com/1Deepesh/demo.git"
     }
-    stage ('test') {
-        echo 'Testing ....'
+    stage ('build') {
+        try{echo 'Testing ....'
+            echo 'Hello world'
+            sh 'date'
+            sh 'uptime'
+            sh 'dateljkdf'
+        }catch(ex) {
+            echo "sorry something went wrong."
+        }
+        finally {
+            echo "finally block executed."
+        }
     }
     stage ('Deploy') {
         echo 'deploy ...'
     }
-    stage ('new stage added') {
-
-	echo "new stage added...."
-    }
-    stage ('featurestg.') {
-
-        echo "feature ...."
-    }
-
 }
